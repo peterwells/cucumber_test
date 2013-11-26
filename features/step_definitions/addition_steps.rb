@@ -1,14 +1,30 @@
-require '../../code/calculator.rb'
+require 'C:\Users\pwells2\Documents\GitHub\cucumber_test\code\calculator'
 
-Given /I have entered (.*) into the calculator/ do |n|
-	@calculator = Calculator.new
+Given /I have entered (\d+) into the calculator/ do |n|
+	if @calculator == nil
+		@calculator = Calculator.new
+	end
 	@calculator.push(n.to_i)
+end
+
+Given /I have entered \-(\d+) into the calculator/ do |n|
+	if @calculator == nil
+		@calculator = Calculator.new
+	end
+	arg = n.to_i * -1
+	@calculator.push(arg)
+end
+
+Given /I have entered nothing into the calculator/ do
+	if @calculator == nil
+		@calculator = Calculator.new
+	end
 end
 
 When /I press add/ do
 	@calculator.add
 end
 
-Then /The result should be (\d+) on the screen/ do |n|
-	@calculator.should == n.to_i
+Then /the result should be (\d+) on the screen/ do |n|
+	@calculator.result.should == n.to_i
 end
