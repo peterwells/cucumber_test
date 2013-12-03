@@ -10,12 +10,19 @@ class Calculator
 	end
 	
 	def add
-		@first = @args.pop.to_i
 		@second = @args.pop.to_i
+		@first = @args.pop.to_i
 		@result = @first + @second
 	end
 
 	def subtract
-		@result = 0
+		@second = @args.pop
+		@first = @args.pop
+		
+		unless @first.nil?
+			@result = @first.to_i - @second.to_i
+		else
+			@result = @second.to_i
+		end
 	end
 end

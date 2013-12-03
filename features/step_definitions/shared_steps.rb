@@ -24,3 +24,7 @@ end
 Then /the result should be (\d+) on the screen/ do |n|
 	@calculator.result.should == n.to_i
 end
+
+Then /the result should be \-(\d+) on the screen/ do |n|
+	@calculator.result.should == (-1)*n.to_i
+end

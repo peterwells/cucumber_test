@@ -21,10 +21,6 @@ Given /I have entered nothing into the calculator/ do
 	end
 end
 
-When /I press add/ do
-	@calculator.add
-end
-
 Then /the result should be (\d+) on the screen/ do |n|
 	@calculator.result.should == n.to_i
 end
