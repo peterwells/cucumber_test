@@ -14,8 +14,4 @@ class Calculator
 		@second = @args.pop.to_i
 		@result = @first + @second
 	end
-
-	def subtract
-		@result = 0
-	end
 end

@@ -21,8 +21,8 @@ Given /I have entered nothing into the calculator/ do
 	end
 end
 
-When /I press add/ do
-	@calculator.add
+When /I press subtract/ do
+	@calculator.subtract
 end
 
 Then /the result should be (\d+) on the screen/ do |n|
