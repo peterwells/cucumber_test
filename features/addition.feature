@@ -24,3 +24,9 @@ Feature: Addition
 		And I have entered -10 into the calculator
 		When I press add
 		Then the result should be 20 on the screen
+
+	Scenario: Add two floating point numbers
+		Given I have entered 2.4 into the calculator
+		And I have entered 5.3 into the calculator
+		When I press add
+		Then the result should be 7.7 on the screen

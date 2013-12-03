@@ -21,10 +21,26 @@ Given /I have entered nothing into the calculator/ do
 	end
 end
 
+Given /I have entered (\d+)\.(\d+) into the calculator/ do |arg1, arg2|
+	if @calculator.nil? 
+		@calculator = Calculator.new
+	end
+
+	arg_str = arg1.concat(".").concat(arg2)
+	arg = arg_str.to_f
+	@calculator.push(arg)
+end
+
 Then /the result should be (\d+) on the screen/ do |n|
 	@calculator.result.should == n.to_i
 end
 
 Then /the result should be \-(\d+) on the screen/ do |n|
 	@calculator.result.should == (-1)*n.to_i
+end
+
+Then /the result should be (\d+)\.(\d+) on the screen/ do |arg1, arg2|
+	arg_str = arg1.concat(".").concat(arg2)
+	res = arg_str.to_f
+	@calculator.result.should == res
 end

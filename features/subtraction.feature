@@ -26,3 +26,10 @@ Feature: Subtraction
 		And I have entered -6 into the calculator
 		When I press subtract
 		Then the result should be -6 on the screen
+
+	Scenario: Subtract two floating point numbers
+		Given I have entered 7.8 into the calculator
+		And I have entered 3.55 into the calculator
+		When I press subtract
+		Then the result should be 4.25 on the screen
+

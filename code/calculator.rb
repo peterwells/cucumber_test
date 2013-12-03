@@ -10,9 +10,9 @@ class Calculator
 	end
 	
 	def add
-		@second = @args.pop.to_i
-		@first = @args.pop.to_i
-		@result = @first + @second
+		@second = @args.pop.to_f
+		@first = @args.pop.to_f
+		@result = (@first + @second).round(4)
 	end
 
 	def subtract
@@ -20,9 +20,31 @@ class Calculator
 		@first = @args.pop
 		
 		unless @first.nil?
-			@result = @first.to_i - @second.to_i
+			@result = (@first.to_f - @second.to_f).round(4)
 		else
-			@result = @second.to_i
+			@result = @second.to_f
+		end
+	end
+
+	def multiply
+		@second = @args.pop
+		@first = @args.pop
+
+		unless @first.nil?
+			@result = (@first.to_f * @second.to_f).round(4)
+		else
+			@result = @second.to_f
+		end
+	end
+
+	def divide
+		@second = @args.pop
+		@first = @args.pop
+
+		unless @first.nil?
+			@result = (@first.to_f/@second.to_f).round(4)
+		else
+			@result = @second.to_f
 		end
 	end
 end
